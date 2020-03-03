@@ -80,3 +80,38 @@ public class Solution{
 }
 ```
 
+#### 3、输入一个链表，按链表从尾到头的顺序返回一个ArrayList
+
++ 递归
+
+```java
+import java.uitl.*;
+public class Solution{
+    Array<Integer> list = new ArrayList<>();
+    public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+    	if(listNode != null){
+            printListFromTailToHead(listNode.next);
+            list.add(listNode.val);
+        }
+        return list;
+    }
+}
+```
+
++ 非递归
+
+```java
+import java.util.*;
+public class Solution {
+    public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+        ArrayList<Integer> list = new ArrayList<>();
+        ListNode tmp = listNode;
+        while(tmp!=null){
+            list.add(0,tmp.val);
+            tmp = tmp.next;
+        }
+        return list;
+    }
+}
+```
+
